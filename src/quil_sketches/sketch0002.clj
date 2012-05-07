@@ -1,4 +1,4 @@
-(ns quil-sketches.sketch0001
+(ns quil-sketches.sketch0002
   (:use [quil.core]))
 
 ;;; Now, let's just make the background a bit more colourful
