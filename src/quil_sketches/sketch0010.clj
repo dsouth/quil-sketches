@@ -1,5 +1,6 @@
 (ns quil-sketches.sketch0010
-  (:use [quil.core]))
+    (:use [quil.core]
+          [quil-sketches.core]))
 
 ;;; Now in black and blue...
 
@@ -24,8 +25,8 @@
     (fill 0 0 (* 255 (- 1 combined)))
     (ellipse x y diam diam)))
 
-(defsketch example
-  :title "Oh so many colourful ellipses"
+(start-sketch
+ {:name "Oh so many colourful ellipses"
   :setup setup
   :draw draw
-  :size [323 200])
+  :filename "sketch0010.png"})

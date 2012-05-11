@@ -1,5 +1,6 @@
 (ns quil-sketches.sketch0001
-  (:use [quil.core]))
+  (:use [quil.core]
+        [quil-sketches.core]))
 
 ;;; For reference purposes, this is the example from the quil README
 
@@ -18,8 +19,8 @@
         y    (random (height))]
     (ellipse x y diam diam)))
 
-(defsketch example
-  :title "Oh so many grey circles"
+(start-sketch
+ {:name "Oh so many grey circles"
   :setup setup
   :draw draw
-  :size [323 200])
+  :filename "sketch0001.png"})

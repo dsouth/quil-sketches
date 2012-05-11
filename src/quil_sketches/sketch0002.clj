@@ -1,18 +1,8 @@
 (ns quil-sketches.sketch0002
-  (:use [quil.core]))
+  (:use [quil.core]
+        [quil-sketches.core]))
 
 ;;; Now, let's just make the background a bit more colourful
-
-(defn colour-coll
-  "Returns a vector with three random numbers between 0 and 255."
-  []
-  [(random 255) (random 255) (random 255)])
-
-(defn with-random-color
-  "Takes a functions f and calls it with three random parameters
-between 0 and 255."
-  [f]
-  (apply f (colour-coll)))
 
 (defn setup []
   (smooth)
@@ -29,8 +19,8 @@ between 0 and 255."
         y    (random (height))]
     (ellipse x y diam diam)))
 
-(defsketch example
-  :title "Oh so many grey circles"
+(start-sketch
+ {:name "Oh so many grey circles"
   :setup setup
   :draw draw
-  :size [323 200])
+  :filename "sketch0002.png"})
