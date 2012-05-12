@@ -20,14 +20,10 @@
 (defn round-colour-coll [coll]
   (map #(java.lang.Math/round %) coll))
 
-(defn target-reached? []
-  (round-colour-coll @current-color))
-
 (defn next-color []
-  (when (target-reached?)
-    (dosync
-    (ref-set target-color (colour-coll))
-    (ref-set start-color @current-color)))
+  (dosync
+   (ref-set target-color (colour-coll))
+   (ref-set start-color @current-color))
   (let [jump-percent 10
         delta (map #(/ (- % %2) jump-percent) @target-color @start-color)]
     (dosync

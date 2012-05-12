@@ -30,14 +30,10 @@
 (defn round-colour-coll [coll]
   (map #(java.lang.Math/round %) coll))
 
-(defn target-reached? []
-  (round-colour-coll @current-color))
-
 (defn next-color []
-  (when (target-reached?)
-    (dosync
-    (ref-set target-color (get-target-color colors))
-    (ref-set start-color @current-color)))
+  (dosync
+   (ref-set target-color (get-target-color colors))
+   (ref-set start-color @current-color))
   (let [divisor 128
         delta (map #(/ (- % %2) divisor) @target-color @start-color)]
     (dosync

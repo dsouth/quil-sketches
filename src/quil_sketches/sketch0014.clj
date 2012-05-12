@@ -4,9 +4,9 @@
 
 ;; Trying something a little different with colour...
 
-(def start-color)
-(def current-color)
-(def target-color)
+(def start-color (ref []))
+(def current-color (ref []))
+(def target-color (ref []))
 
 (defn setup []
   (smooth)
@@ -20,14 +20,10 @@
 (defn round-colour-coll [coll]
   (map #(java.lang.Math/round %) coll))
 
-(defn target-reached? []
-  (round-colour-coll @current-color))
-
 (defn next-color []
-  (when (target-reached?)
-    (dosync
-    (ref-set target-color (colour-coll))
-    (ref-set start-color @current-color)))
+  (dosync
+   (ref-set target-color (colour-coll))
+   (ref-set start-color @current-color))
   (let [jump-percent 10
         delta (map #(/ (- % %2) jump-percent) @target-color @start-color)]
     (dosync
@@ -37,11 +33,6 @@
 (defn draw []
   (let [x (random (width))
         y (random (height))
-        mid-x (/ (width) 2)
-        mid-y (/ (height) 2)
-        per-x (percent-from-location mid-x x)
-        per-y (percent-from-location mid-y y)
-        combined (/ (+ per-x per-y) 2)
         colour (next-color)]
     (apply fill colour)
     (ellipse x y 50 50)))
