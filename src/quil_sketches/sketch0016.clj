@@ -1,4 +1,4 @@
-(ns quil-sketches.sketch0015
+(ns quil-sketches.sketch0016
     (:use [quil.core]
           [quil-sketches.core]))
 
