@@ -20,4 +20,4 @@ between 0 and 255."
     :setup (:setup sketch-map)
     :draw (:draw sketch-map)
     :mouse-clicked #(save (:filename sketch-map))
-    :size [323 200]))
+    :size (get sketch-map :size [323 200])))
