@@ -2,8 +2,7 @@
     (:use [quil.core]
           [quil-sketches.core]))
 
-;; Smaller dots... takes longer to develop...
-;; Again, best viewed at maximum size
+;; Trying something a little different with colour...
 
 (def start-color)
 (def current-color)
