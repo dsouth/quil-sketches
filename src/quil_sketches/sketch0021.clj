@@ -60,4 +60,4 @@
   :setup setup
   :draw draw
   :size [500 500]
-  :filename "sketch0020.png"})
+  :filename "sketch0021.png"})
